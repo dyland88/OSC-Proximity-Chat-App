@@ -1,13 +1,15 @@
 import React from 'react'
 import { Stack } from 'expo-router';
 import ChatScreen from '../../components/Chat/ChatScreen'
+import CustomScreen from '../../components/Chat/CustomScreen';
 import SafeAreaWrapper from '../../components/Common/SafeAreaWrapper';
 
 
 const ChatroomPage = () => {
     return (
       <SafeAreaWrapper>
-        <ChatScreen />
+        
+        <CustomScreen />
       </SafeAreaWrapper>
       );
 }
