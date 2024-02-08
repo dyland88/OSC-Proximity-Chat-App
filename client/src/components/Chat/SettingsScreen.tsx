@@ -9,18 +9,26 @@ import {SafeAreaView,
 
 } from 'react-native'; // And all other imports
 
-// Any logic should be right above the component
+type SettingsProps = {
+    title: string,
+}
 
-const settingsItems = [
+// Any logic should be right above the component
+const SettingsItem = ({title}: SettingsProps) => (
+    <View style={styles.settingsElement}>
+        <Text style={styles.settingsText}> {title} </Text>
+
+    </View>
+)
+
+const settings = [
     {
         id: '1',
         title: 'Dark Mode',
-        
     },
     {
         id: '2',
         title: 'Notifications',
-        
     },
     {
         id: '3',
@@ -39,20 +47,36 @@ const settingsItems = [
 
 const SettingsScreen : React.FC = () => {
     return (
-            <FlatList 
-            data={settingsItems}
-            renderItem={({item}) => (
-                <View>
-                    <Text>{item.title}</Text>
-                    
-                </View>
-            )}
+            <FlatList
+            data={settings}
+            renderItem={({item}) => <SettingsItem title={item.title}/>}
+            keyExtractor={item => item.id}
             />
     )
 };
 
 const styles = StyleSheet.create({
     // Styles
+    container: {
+        width: "100%",
+        display: 'flex',
+        flexDirection: 'row',
+        padding: 10,
+        color: 'white',
+        
+
+
+    },
+    settingsElement: {
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column',
+        padding: 5,
+        color: 'white',
+    },
+    settingsText: {
+        fontSize: 24,
+    }
 });
 
 export default SettingsScreen; // Good for standalone components/Screens
