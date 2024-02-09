@@ -9,9 +9,6 @@ const CustomScreen : React.FC = () => {
 
     const toggleSwitch = () => setIsEnabled(!isEnabled)
 
-    function toogleSwitch() {
-        setIsEnabled(!isEnabled)
-    }
 
 
     return (
